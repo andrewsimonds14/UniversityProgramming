@@ -1,0 +1,24 @@
+Question: Do your observations support the theoretical predictions that BFS_Subset_Sum is in
+O(2^n) and HS_Subset_Sum is in O(n*2^(n/2))
+
+Here is a modified version of my test results table from Part 2...
+
+Set Size   Brute Force Runtime  Horowitz-Shani Runtime  2^(Set Size)  (Set Size)*2^(Set Size/2)
+4          15                   52                      16            16
+5          44                   128                     32            28.284271247461902
+6          104                  231                     64            48
+7          219                  362                     128           79.19595949289332
+8          448                  528                     256           128
+9          864                  732                     512           203.6467529817257
+10         1646                 971                     1024          320
+11         2969                 1267                    2048          497.8031739553295
+12         5518                 1596                    4096          768
+13         10266                2019                    8192          1176.6256838944153
+14         20128                2519                    16384         1792
+
+
+Conclusion: It can be seen that the Brute Force runtime follows the trend of 2^(Set Size)
+            and that the Horowitz-Shani runtime follow the trend of (Set Size)*2^(Set Size/2),
+            so it can be concluded that the theoretical predictions of the big O hold true.
+            From this conclusion, it can be confirmed that the HS algorithm is the preferred
+            algorithm on larger sets with regards to runtime.

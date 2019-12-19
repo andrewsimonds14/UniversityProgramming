@@ -1,0 +1,45 @@
+my_read_proc:
+numChars is used to keep track of how far into the buffer we've previously printend.
+
+If pointer position is equal to zero, then the function is being called for the first time.
+    For the first time we want to:
+    Print out the number of running threads and processes
+    Print out the headers "PID, UID, NICE" to organize the data we print later.
+    Each print statement is made using sprint and returned to numChars to keep track of characters.
+    
+    Set the first task equal to the init_task
+    Set last task = to first task
+    This keeps track of the current task to be printed, and the last task that the program should watch for
+    to recognize that it's done a full loop.
+    
+    If the current task's PID != 0:
+        print its info (PID UID nice)
+    
+    Valid processes will have non-zero PIDs, so we want to skip over PIDs equaling 0
+    
+    Advance to next task by incrementing the pointer to the task pointed to by current task
+    
+if not at the 0 position:
+    This means we're looping through the tasks, and we don't have to print headers
+    
+    If we've reached the first task again:
+        We've done a full loop and can exit
+        Setting eof* = 0 to indicate the program is done and returning 0 (the numChars written to buffer)
+        
+    Else:
+        If PID = 0 continue looping through tasks
+        Else:
+            print out the current tasks PID UID and nice
+    
+    Advance to the next task for when my_read_proc is called next
+    
+init_module:
+    Create a proc entry with the name lab2, making it read only with a NUll parent.
+    If null is returned, it has been successful
+    Else a -1 was returned to indicate error
+    Set the struct's read_proc = to my_read_proc, so that it is called instead when it is read by the kernel,
+    our function will be called
+    Return a 1 for failure, 0 for success
+
+cleanup_module:
+    Call remove_proc_entry on the created lab2 proc with Null parent making sure nothing is left behind when the module is removed

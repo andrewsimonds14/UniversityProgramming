@@ -1,0 +1,32 @@
+Lab5 Program Description by Cameron Morrison and Andrew Simonds
+
+Important Information:
+Compromise string length: 140 characters
+Return address of the server: 0xFBFF7F9A
+
+
+Program Description:
+want the server to execute the following command: 
+> sh -c "cat /etc/passwd; exit" 
+The following command is going to be run
+> result = execve(const char * path, char *const argv[], char *const envp[]);
+with each argument contained in registers. The arguments being:
+    argv[0] is the name of the command, which is the same as the first parameter (which we can share). 
+    argv[1] points to "-c"
+    argv[2] points to "cat /etc/passwd; exit" 
+    argv[3] is NULL (i.e. value 0).
+The contents do have to be organized in memory. The instructions and data have to be just before
+the return address so that it will be loaded when the time for execution comes. This is why after
+looking at the assembled nasm code the noop commands were added; to provide a buffer that pushed our code 
+into the correct position. 
+
+The first step is that the program needs to know the address of the stack.
+The program calls a subroutine to jump from the top of the code to the bottom, and then back to the top. 
+This pushes the address of the instruction following the call instruction on the stack which in the program
+is the first byte of the "/bin/shX" string. This is then popped into the source index register, which will be 
+used to access the needed bytes.  The program then removes unwanted null bytes and newline characters, and 
+computes the required address at runtime, storing in an array.  To figure out the proper return address, the 
+program subtracts four from the stack pointer given by the debugger upon program crash.  Then, subtract the 
+length of the program from the value of the return address and that is the value used.
+
+

@@ -1,0 +1,9 @@
+Lab1 Testing by Cameron Morrison and Andrew Simonds
+
+To test the program, the output.txt file was compared to the output of the ‘top’ command in linux. 
+This command printed all the information in the /proc file including each process name, status, 
+and user ID. Each user ID from the top command was shown as a name which was then converted into an 
+integer and checked against the integer IDs in the output file. All of the names and statuses of
+the processes matched the output file both in content and format, however the top command didn’t
+give the Group ID property for the processes. To supplement ‘top’ we used 
+“grep ‘^Gid’ /proc/<process number>/status” on each process to test its Gid against our results.

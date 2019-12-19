@@ -1,0 +1,22 @@
+Script 1:
+
+For script one testing was done by running the provided command "ps -eo pid,user,rss,args". This was compared to
+the output in script1Output.txt. The first script was written with the intention of displaying 
+the same information as the ps command in the same format. The outputs were exactly the same minus the last
+process; the ps command displayed a ps process, and the script displayed the process for the running script.
+
+Script 2:
+The 2nd script was ran in multiple folders that each contained either one of the two key file types, main and module, or a
+directory containing absolutely nothing to test that boundary case.
+
+The script was ran in the Lab2(module lab) directory and found the correct number of each file: 0 main, 1 module (with 0 of the corresponding prints
+, and the rest under 'other'.
+The output was piped into the Lab2Output.txt using 'sh Script1.sh /home/student/E377-Thu-19/lab2 >> Lab2Output.txt
+
+The script was ran in the Lab3 directory and in this case it also found the correct number of each file type: 3 main with the corresponding prints,
+0 module, and the rest 'other'.
+The output was piped into the Lab3Output.txt using 'sh Script1.sh /home/student/E377-Thu-19/lab3 >> Lab3Output.txt
+
+Lastly, an empty folder was created in lab4 using 'mkdir Empty'. The script was ran in this folder and displayed the correct
+output; showcasing that there were none of any file type.
+The output was piped into the EmptyOutput.txt using 'sh Script1.sh /home/student/E377-Thu-19/lab4/Empty >> EmptyOutput.txt

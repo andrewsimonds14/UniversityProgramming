@@ -1,0 +1,12 @@
+Set Size   Brute Force Runtime  Horowitz-Shani Runtime (measured by counts)
+4          15                   52
+5          45                   129
+6          104                  231
+7          218                  365
+8          435                  526
+9          844                  728
+10         1640                 968
+11         3023                 1261
+12         5697                 1603
+13         10770                2024
+14         20031                2524

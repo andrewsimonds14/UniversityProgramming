@@ -1,0 +1,24 @@
+#   Name            Status        User  Group 
+0   init            S (sleeping)  0     0     
+1   keventd         S (sleeping)  0     0     
+2   ksoftirqd_CPU0  S (sleeping)  0     0     
+3   kswapd          S (sleeping)  0     0     
+4   bdflush         S (sleeping)  0     0     
+5   kupdated        S (sleeping)  0     0     
+6   mdrecoveryd     S (sleeping)  0     0     
+7   kjournald       S (sleeping)  0     0     
+8   syslogd         S (sleeping)  0     0     
+9   klogd           S (sleeping)  0     0     
+10  dhcpcd          S (sleeping)  0     0     
+11  khubd           S (sleeping)  0     0     
+12  inetd           S (sleeping)  0     0     
+13  crond           S (sleeping)  0     0     
+14  sendmail        S (sleeping)  0     0     
+15  sendmail        S (sleeping)  25    25    
+16  bash            S (sleeping)  1000  100   
+17  agetty          S (sleeping)  0     0     
+18  agetty          S (sleeping)  0     0     
+19  agetty          S (sleeping)  0     0     
+20  agetty          S (sleeping)  0     0     
+21  agetty          S (sleeping)  0     0     
+22  lab1            R (running)   1000  100   

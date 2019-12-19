@@ -1,0 +1,20 @@
+Main files:
+/home/student/E377-Thu-19/lab3/consumer.c:3.2
+/home/student/E377-Thu-19/lab3/meminit.c:3.0
+/home/student/E377-Thu-19/lab3/producer.c:2.2
+Module files:
+No module file found
+Other files:
+/home/student/E377-Thu-19/lab3/Makefile
+/home/student/E377-Thu-19/lab3/common.c
+/home/student/E377-Thu-19/lab3/common.h
+/home/student/E377-Thu-19/lab3/test0.txt
+/home/student/E377-Thu-19/lab3/test1.txt
+/home/student/E377-Thu-19/lab3/test2.txt
+/home/student/E377-Thu-19/lab3/common.o
+/home/student/E377-Thu-19/lab3/consumer
+/home/student/E377-Thu-19/lab3/meminit
+/home/student/E377-Thu-19/lab3/producer
+/home/student/E377-Thu-19/lab3/testOut.txt
+/home/student/E377-Thu-19/lab3/File_Description.txt
+/home/student/E377-Thu-19/lab3/TestingDescription.txt

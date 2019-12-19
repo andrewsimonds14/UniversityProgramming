@@ -1,0 +1,17 @@
+Lab3 Testing Description by Cameron Morrison and Andrew Simonds
+
+The first step of the testing process was to run the meminit program to initialize the shared memory segment.  The command was ./meminit.
+
+We then tested our producer and consumer programs together.
+
+Our first set of tests consisted of us manually inputting text to be taken in by the producer.
+This text was then observed to be written out to the console.
+The commands used for this were "./producer 0" "<user-input text>"  and then in separate console "./consumer 1"
+
+The next set of tests were to give an input file to the producer instead of manual input, and then observe the output by the consumer.
+The commands used for this were "./producer 0 < test0.txt"  and then in separate console "./consumer 1"
+
+Lastly, we ran two producer programs at once, with two different input files, and then the consumer program.
+We observed that the consumer was able to receive the data from the producers in the desired order and with no errors.
+This can be observed in testOut.txt.
+The command used for this were "./producer 0 < test1.txt" in one console, "./producer 1 < test2.txt" in a separate console "./consumer 1 >> testOut.txt" in the third console.

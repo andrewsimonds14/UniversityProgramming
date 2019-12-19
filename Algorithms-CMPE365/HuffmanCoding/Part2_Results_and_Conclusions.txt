@@ -1,0 +1,24 @@
+Part 1 Notes:
+	-Made three separate python files for each canonical set to facilitate testing
+	-All these python files are basically the same except for file paths
+
+Part 2 Results:
+The sum of the sizes of the files in the Data folder is approximately 2285 KB.
+
+Canonical Set 1:
+	-Size of Huffman Code compressed file: 29,742 KB
+	-Translates to an actual size of 3,717 KB if each byte was a bit
+
+Canonical Set 2:
+	-Size of Huffman Code compressed file: 10,972 KB
+	-Translates to an actual size of 1,371 KB if each byte was a bit
+	
+Canonical Set 3:
+	-Size of Huffman Code compressed file: 10,827 KB
+	-Translates to an actual size of 1,359 KB if each byte was a bit
+
+It can be seen that choosing either set 2 or set 3 results in a similar efficiency for Huffman Coding, but choosing set 1
+results in a much larger file after Huffman encoding.
+This is expected considering the first canonical set doesn't contain any spaces, so encoding any normal text file will
+cause for a much greater size.  Both canonical set 2 and 3 are large and diverse text sets so the trends of common
+characters can be easily determined.

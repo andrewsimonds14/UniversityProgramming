@@ -1,0 +1,17 @@
+Lab1 Program Description by Cameron Morrison and Andrew Simonds
+
+The objective of the program was to return the name, status, user ID, and group ID for all processes running at the time of execution.
+
+At the start of the main function the output file is opened in write only mode. 
+A header line is printed containing all the information that will be read from the proc file. 
+A dirent struct is created to contain the names of the processes. Scandir is used to put the name of each file in the proc
+folder into the namelist struct, calling upon isProcessDir to only grab processes (file names consisting only of integers).  
+The function isProcessDir iterates through the name of the dirent process passed to it, to ensure that
+each character is a digit, and returns a zero or a one accordingly.  A for loop is used to iterate through namelist which
+obtains the name, status, user ID and group ID of each process.  In each iteration, the corresponding name list
+file’s properties are saved to predeclared variables of the same size.  These characteristics are modified using 
+functions such as delLast() to replace unwanted newline characters with an escape character, firstChar() to
+remove the extra label at the start of the property’s string, and deleteAfter() which deletes the duplicates 
+in the group ID and user ID strings by replacing a tab with an escape character to truncate the string where needed. 
+Once the strings are obtained and properly formatted, they are written to the output file in a table format.
+

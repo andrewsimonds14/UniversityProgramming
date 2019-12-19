@@ -1,0 +1,7 @@
+Test Set: 10  20  30  
+Example Target Value: 40
+
+Brute Force Algorithm:
+Solution found -> (10, 30)
+HorowitzSahni Algorithm:
+Solution found -> (10,) and (30,)

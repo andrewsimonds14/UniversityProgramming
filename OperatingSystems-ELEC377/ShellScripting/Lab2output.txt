@@ -1,0 +1,13 @@
+Main files:
+No main file found
+Module files:
+/home/student/E377-Thu-19/lab2/lab2.c:
+Other files:
+/home/student/E377-Thu-19/lab2/.DS_Store
+/home/student/E377-Thu-19/lab2/Makefile
+/home/student/E377-Thu-19/lab2/output.txt
+/home/student/E377-Thu-19/lab2/lab2.o
+/home/student/E377-Thu-19/lab2/Program_Description
+/home/student/E377-Thu-19/lab2/Pseudo
+/home/student/E377-Thu-19/lab2/Testing_Description
+/home/student/E377-Thu-19/lab2/Lab2_Marks.txt

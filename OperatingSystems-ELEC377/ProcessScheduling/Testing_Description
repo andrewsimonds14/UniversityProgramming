@@ -1,0 +1,18 @@
+top commands : all nice values line up, all PID are right,
+check that uid matches user output from top
+ps: ps shows the processes running; number lined up with output
+
+The first step in testing the lab2 module was to run the command:
+ps -l -A
+which outup all running processes, and their PIDs, UIDs, and nice 
+values. 
+
+This was compared to the output in output.txt which was created by 
+inserting our lab2 module in root using:
+insmod lab2.o
+and then running:
+cat /proc/lab2 
+
+Comparing the two, and referencing documentation to ensure numbers
+== names for PID and UID, the testing showed that our module was outputing
+the correct values.

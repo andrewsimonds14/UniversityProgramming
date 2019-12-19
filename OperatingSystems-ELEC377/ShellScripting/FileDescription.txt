@@ -1,0 +1,97 @@
+Lab4 Program Description by Cameron Morrison and Andrew Simonds
+
+<Descriptions of Programs>
+
+Script1:
+    Similar to the program in Lab 1, this script's obejective was to obtain the PID, USERID, RSS, and 
+    Command of a certain process that is currently running. The script loops through all processes and
+    their directories in the /proc file. In each loop it checks if a status file exists, and 
+    if so, grabs the PID, USER, and RSS (setting it to 0 if not found). It then reads the 
+    command for the selected process and replaces null characters with spaces, 
+    after which it will set the value to the process' name if it does not exist.
+    At the end of each loop the gathered PID, USER, RSS, and COMMAND are printed to the screen / file.
+
+Script2:
+    Search through all files in a path and find those that contain a main function, an init_module function,
+    or those that contain neither, while keeping track of certain print statements accordingly.  This script 
+    first checks all files for a main function, and prints the respective file paths, as well as the number 
+    of printf and fprintf statements. Next, the script checks all files for an init_module function and prints 
+    the respective file paths along with line numbers where a printk occurs.  Lastly, the script checks all files
+    for those with neither of the aforementioned functions and prints their file paths.  
+    The script used 'readlink' for each file to acquire it's full path, and used grep to search for desired strings of characters.
+
+<Pseudo Code for each program>
+
+Script1:
+    Print out titles (PID, USER, RSS, COMMAND)
+
+    for process in process list consisting of only integer numbers:
+    
+        Check that status file exists, if not skip this process
+    
+        Get the PID
+    
+        Get the user ID
+    
+        Get the RSS, 0 by default
+    
+        Get the Command
+    
+        If no cmdline exists, print out process name in [square brackets]
+    
+        Print out the PID, USER, RSS, COMMAND
+
+
+Script2:
+    First argument of script will be the file path to search
+
+    If no argument given, use current path
+
+    Print "Main Files" title
+
+    Initialize isMain variable to false (Checks if path has any files with a main)
+
+    For all files in the path
+        Read the files full path
+            If file contains a main function
+                Set isMain to true
+                Fprintf counter is set equal to the number of lines containing fprintf
+                Printf counter is set equal to the number of lines containing printf minus Fprintf counter                      (Don't count instances of fprintf)
+                Print path and count values
+
+
+    If no main functions were found
+        Print "No main found"
+
+
+
+
+    Print "Module Files" title
+
+    Initialize isModule variable to false (Checks if path has any files with an init_module)
+
+    For all files in the path
+        Read the files full path
+            If file contains an init_module function
+                Set isModule to true
+                Printk counter is set equal to the number of lines containing printk
+                Print path and count value
+
+
+    If no init_module functions were found
+        Print "No module found"
+
+
+    Print "Other Files" title
+
+    Initialize isOther variable to false
+
+    For all files in the path
+        Read the files full path
+            If file contains no main or init_module function
+                Set isOther to true
+                Print path
+
+
+    If no 'other' functions were found
+        Print "No others found"

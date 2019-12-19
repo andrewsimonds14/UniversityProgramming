@@ -1,0 +1,31 @@
+Lab5 Testing Description by Cameron Morrison and Andrew Simonds
+
+Initial Changes:
+The initial exploit code was taken from the linked material. To allow the program to work properly, some changes
+were made to the final block of code shown documented. First the statements that tried to move a null character were 
+changed to xors and the mov eax 0x0b to mov al, 0x0b so that only the lower 8 bits were kept. Next an arbitrary byte 
+was added to the end of the /bin/shX string so that the server overflows the return address. Finally, an array 
+of filler values was used and the lines allowing the program to compute the address at runtime and put that address
+into the array were added. 
+
+> nasm -l exploit.lst -f bin exploit.nasm 
+and then 
+> od -t x1 exploit 
+were used to view the completed exploit code. 
+
+Client Test:
+First, 43 noop instructions (0x90) were added to allign the new and existing
+return addresses. 
+
+For part one testing was done by compiling the finished selfcomp file and running it using ./selfcomp. 
+Once it was certain that the program was outputting the correct information, it was ran again using 
+> ./selfcomp >> output1.txt to save our output to the mentioned text file. 
+
+Server Test:
+
+For the client.c file the 43 noop instructions (0x90) were changed to 27 noop instructions due to the
+difference in return addresses between server and client.
+
+Once it was certain that the program was outputting the correct information, the server was started
+on port 10001 (after using 10000 to test) and piped to a file using
+> ./client 10001 >> output2.txt to save our output to the mentioned text file.

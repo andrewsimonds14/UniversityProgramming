@@ -1,0 +1,27 @@
+my_read_proc:
+    if at first task:
+        print running threads and processes
+        print headers (pid, uid, nice)
+        
+        Get first task
+        if pid is not 0:
+            print its info under headers
+        
+        advance to next task
+        
+    if not at first task:
+        if the first task was already reached:
+            exit (all tasks reached)
+        else:
+            advance to a task with pid != 0
+            print its info under headers
+        
+        advance to next task
+      
+     init_module:
+        create lab2 as a proc entry
+        if successful:
+            Set read_proc = my_read_proc
+            
+    cleanup_module:
+        Remove lab2 as a proc entry

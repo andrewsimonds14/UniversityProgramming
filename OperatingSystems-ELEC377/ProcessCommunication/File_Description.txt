@@ -1,0 +1,111 @@
+Lab3 Program Description by Cameron Morrison and Andrew Simonds
+
+<Descriptions of Programs>
+
+Common:
+    Consists of mutual exclusiuon routines to be used by both the producer and the consumer during runtime.
+    Mutual exclusion routines implement the 'pass the key' method.
+
+Consumer:
+    Uses routines from 'common' to ensure safe access of critical section.
+    Continues to receive characters from the buffer in shared memory space until the end of the data segment from a distinct producer has been reached.
+    Outputs the characters received to a desired output file.
+
+Producer:
+    Uses routines from 'common' to ensure safe access of critical section.
+    Continues to get characters from input source until end of file is reached.
+    Places these characters in a shared memory space in a buffer while keeping track of what's been stored.
+
+<Pseudo Code for each program>
+
+Common:
+    TEST AND SET:
+        Perform and exchange operation
+        
+    MUTEXINIT:
+        Initialize the mmutex
+        
+    getMutex:
+        waiting to true
+        
+        key to true
+        
+        while key is not available:
+        
+            set val of key
+            
+        waiting to false
+        
+    releaseMutex:
+        set to current
+        
+        while current bit waiting:
+        
+            go through processes
+            
+        if pid = current:
+        
+            lock = false
+            
+        else
+        
+            waiting to false
+    
+    
+Consumer:
+    read = false
+    
+    while false != read:
+    
+        getMutex()
+        
+        if count in buffer > 0:
+        
+            char = buffer[out]
+            
+            out = out + 1 % buffersize
+            
+            decrement count
+            
+            read to true
+        else:
+            if(no producers running):
+            
+                at the end
+                
+                read to true
+                
+        releaseMutex(pid)
+        
+
+Producer:
+    getMutex(pid)
+    
+    increment number of producers
+    
+    releaseMutex(pid)
+    
+    while( getchar is not EOF):
+        stored = false
+        
+        while(stored == false):
+            getMutex(pid)
+            
+            if(count < buffsize):
+                memory->in = c
+                
+                stored = True
+                
+                increment count
+                
+                in = in + 1 % buffsize
+                
+            releaseMutex(pid)
+            
+    getMutex(pid)
+    
+    decrement number of producers
+    
+    releaseMutex(pid)
+    
+    return 0
